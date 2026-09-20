@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="sq" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TattooAura — The One and Only</title>
+<meta name="description" content="TattooAura: studio tatuazhesh me dizajne unike, realistik, fine line, lettering dhe cover-up. Rezervo terminin tënd.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="TattooAura — The One and Only">
+<meta property="og:description" content="Studio tatuazhesh me dizajne unike. Rezervo terminin tënd.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+<script>
+  try { var t = localStorage.getItem('ta-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0b0b0c; --bg2:#111113; --card:#171719; --card2:#202023;
+  --text:#f4f0e6; --muted:#a39e91;
+  --gold:#d9b44a; --gold2:#f2d787; --gold-deep:#a8841f; --ink:#17130a;
+  --line:rgba(217,180,74,.24); --line-soft:rgba(255,255,255,.07);
+  --danger:#ff7468; --wa:#25d366;
+  --pad:20px;
+}
+[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f8f5ed; --bg2:#efeadd; --card:#ffffff; --card2:#f1ece0;
+  --text:#17150f; --muted:#6c675a;
+  --gold:#9a7412; --gold2:#e0bd52; --gold-deep:#8a6510; --ink:#17130a;
+  --line:rgba(154,116,18,.32); --line-soft:rgba(0,0,0,.08);
+  --danger:#c62f22;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none;padding:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+[hidden]{display:none!important}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.serif{font-family:"Playfair Display",Georgia,"Times New Roman",serif}
+
+/* ---------- Header ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:var(--bg);background:color-mix(in srgb,var(--bg) 84%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);padding-top:env(safe-area-inset-top,0px)}
+.hdr-in{height:60px;display:flex;align-items:center;gap:4px}
+.iconbtn{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;transition:background .2s}
+.iconbtn:hover{background:var(--card)}
+.brand{display:flex;align-items:center;gap:10px;margin:0 auto 0 6px}
+.brand img{width:34px;height:34px;border-radius:50%}
+.brand b{font-weight:800;letter-spacing:.16em;font-size:.8rem}
+.theme .sun{display:none}
+[data-theme="light"] .theme .sun{display:block}
+[data-theme="light"] .theme .moon{display:none}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:14px;font-weight:600;font-size:.95rem;letter-spacing:.02em;transition:transform .15s,box-shadow .2s,border-color .2s,color .2s;width:100%}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 52%,var(--gold-deep));color:var(--ink);box-shadow:0 12px 30px -12px rgba(217,180,74,.6)}
+.btn-gold:hover{box-shadow:0 14px 34px -10px rgba(217,180,74,.75)}
+.btn:active{transform:scale(.98)}
+.btn-line{border:1px solid var(--line)}
+.btn-line:hover{border-color:var(--gold);color:var(--gold)}
+.roundbtn{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;transition:transform .15s,opacity .2s}
+.roundbtn.fill{background:var(--gold);color:var(--ink)}
+.roundbtn.line{border:1px solid var(--line);color:var(--gold)}
+.roundbtn:hover{transform:translateY(-1px)}
+.roundbtn:disabled{opacity:.3;cursor:default;transform:none}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding:26px 0 56px;background:radial-gradient(70% 42% at 50% 20%,rgba(217,180,74,.14),transparent 72%)}
+.hero-grid{display:grid;gap:30px}
+.medallion{position:relative;width:min(66vw,290px);aspect-ratio:1;margin:0 auto}
+.medallion img{position:absolute;inset:7%;width:86%;height:86%;border-radius:50%;box-shadow:0 30px 60px -10px rgba(0,0,0,.6),0 0 0 1px var(--line),0 0 90px rgba(217,180,74,.2)}
+.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 90s linear infinite}
+.ring circle{fill:none;stroke:var(--gold)}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--gold);border:1px solid var(--line);padding:6px 14px 6px 10px;border-radius:99px;margin-bottom:18px}
+.tag img{height:16px;width:auto}
+h1{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(2.3rem,9.4vw,4.5rem);line-height:1.05;letter-spacing:-.01em}
+.lead{color:var(--muted);margin-top:16px;max-width:46ch}
+.cta-row{display:grid;gap:10px;margin-top:26px}
+.hero .medallion{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+.hero .hero-copy{animation:rise 1s .18s cubic-bezier(.2,.7,.2,1) both}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ---------- Sections ---------- */
+.sec{padding:60px 0;scroll-margin-top:64px}
+.sec-head{margin-bottom:24px}
+h2{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:clamp(1.8rem,6.4vw,2.7rem);line-height:1.12}
+.sec-head p{color:var(--muted);margin-top:8px;max-width:52ch}
+.split{display:grid;gap:30px}
+
+/* ---------- Gallery ---------- */
+.tools{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;flex:1;scrollbar-width:none;padding:2px 0}
+.chips::-webkit-scrollbar{display:none}
+.chip{white-space:nowrap;padding:9px 16px;border-radius:99px;border:1px solid var(--line);font-size:.85rem;color:var(--muted);transition:all .2s}
+.chip[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:transparent;font-weight:600}
+.arrows{display:flex;gap:8px}
+.arrows .roundbtn{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);color:var(--text)}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--pad));padding:4px var(--pad) 22px;scroll-padding-left:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(72vw,290px);scroll-snap-align:start;background:var(--card);border:1px solid var(--line-soft);border-radius:24px;padding:10px 10px 14px}
+.card .ph{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:var(--card2);cursor:zoom-in}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .meta{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding:14px 6px 0}
+.card small{display:block;font-size:.8rem;color:var(--muted);min-height:1.2em}
+.card h3{font-family:"Playfair Display",Georgia,serif;font-size:1.1rem;font-weight:600;line-height:1.25;margin-top:2px}
+.card.empty .ph{display:grid;place-items:center;cursor:default;background:radial-gradient(circle at 50% 40%,rgba(217,180,74,.12),transparent 65%),var(--card2)}
+.card.empty .ph img{width:34%;height:auto;object-fit:contain;opacity:.4}
+.track.is-grid{display:grid;grid-template-columns:repeat(2,1fr);overflow:visible;margin:0;padding:4px 0 22px}
+.track.is-grid .card{flex:none}
+.more{display:flex;justify-content:center}
+.more .btn{width:auto}
+
+/* ---------- Services ---------- */
+.svc{border-top:1px solid var(--line)}
+.svc li{display:flex;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.svc .ic{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:var(--card);color:var(--gold);border:1px solid var(--line);flex:none}
+.svc .ic .i{width:24px;height:24px}
+.svc h3{font-family:"Playfair Display",Georgia,serif;font-size:1.22rem;font-weight:600;line-height:1.2}
+.svc p{color:var(--muted);font-size:.9rem;margin-top:3px}
+.svc .roundbtn{margin-left:auto}
+
+/* ---------- Steps ---------- */
+.steps{counter-reset:s;display:grid;gap:28px}
+.steps li{display:grid;grid-template-columns:46px 1fr;gap:16px;position:relative}
+.steps li::before{counter-increment:s;content:counter(s);width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;background:var(--bg);position:relative;z-index:1}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:22.5px;top:46px;bottom:-28px;width:1px;background:var(--line)}
+.steps h3{font-family:"Playfair Display",Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.3;padding-top:8px}
+.steps p{color:var(--muted);font-size:.93rem;margin-top:4px}
+
+/* ---------- About ---------- */
+.about{display:grid;gap:34px;align-items:center}
+.about-art{position:relative;width:min(64vw,260px);aspect-ratio:1;margin:0 auto;display:grid;place-items:center}
+.about-art::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle,rgba(217,180,74,.16),transparent 68%),var(--bg2)}
+.about-art::after{content:"";position:absolute;inset:-12px;border-radius:50%;border:1px dashed var(--line)}
+.about-art img{position:relative;width:52%;height:auto}
+.about p{color:var(--muted);margin-top:14px;max-width:56ch}
+.checks{margin-top:20px;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem}
+.checks .i{color:var(--gold);margin-top:2px}
+.motto{font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--gold);font-size:1.3rem;margin-top:22px}
+
+/* ---------- CTA + Footer ---------- */
+.cta{padding:60px 0;text-align:center;border-top:1px solid var(--line);background:radial-gradient(60% 100% at 50% 0,rgba(217,180,74,.11),transparent 75%)}
+.cta p{color:var(--muted);margin:10px auto 24px;max-width:40ch}
+.cta .btn{max-width:340px}
+.ftr{background:var(--bg2);padding:44px 0 calc(34px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line-soft)}
+.soc{display:flex;gap:10px;margin-bottom:30px}
+.soc a{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;border:1px solid var(--line);color:var(--gold);transition:background .2s,color .2s}
+.soc a:hover{background:var(--gold);color:var(--ink)}
+.fcols{display:grid;gap:30px}
+.ftr h4{font-size:1rem;font-weight:700;margin-bottom:12px}
+.ftr nav{display:grid;gap:8px}
+.ftr nav a,.ftr .info a{color:var(--muted);transition:color .2s}
+.ftr nav a:hover,.ftr .info a:hover{color:var(--gold)}
+.ftr .info{display:grid;gap:12px;color:var(--muted);font-size:.93rem}
+.ftr .info div{display:flex;gap:10px;align-items:flex-start}
+.ftr .info .i{color:var(--gold);margin-top:3px;width:18px;height:18px}
+.ftr .info a.u{text-decoration:underline;text-underline-offset:3px}
+.copy{margin-top:34px;padding-top:20px;border-top:1px solid var(--line-soft);font-size:.8rem;color:var(--muted)}
+
+/* ---------- WhatsApp ---------- */
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:56px;height:56px;border-radius:18px;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(37,211,102,.6);transition:transform .2s}
+.wa:hover{transform:translateY(-2px)}
+.wa .i{width:28px;height:28px;stroke-width:1.9}
+
+/* ---------- Scrim / Drawer / Modal / Lightbox ---------- */
+.scrim{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+.scrim.open{opacity:1;visibility:visible;transition:opacity .25s}
+.drawer{position:fixed;top:0;bottom:0;left:0;z-index:70;width:min(84vw,340px);background:var(--bg);border-right:1px solid var(--line);padding:calc(14px + env(safe-area-inset-top,0px)) 20px 24px;display:flex;flex-direction:column;gap:8px;transform:translateX(-102%);visibility:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),visibility 0s .3s}
+.drawer.open{transform:none;visibility:visible;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.dr-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.dr-head img{width:38px;height:38px;border-radius:50%}
+.dr-head b{font-weight:800;letter-spacing:.16em;font-size:.82rem;margin-right:auto}
+.dr-nav{display:grid;margin-bottom:auto}
+.dr-nav a{padding:16px 4px;border-bottom:1px solid var(--line-soft);font-family:"Playfair Display",Georgia,serif;font-size:1.3rem}
+.dr-nav a:hover{color:var(--gold)}
+
+.modal{position:fixed;z-index:70;left:0;right:0;bottom:0;max-height:92vh;max-height:92dvh;overflow-y:auto;background:var(--bg);border:1px solid var(--line);border-bottom:0;border-radius:28px 28px 0 0;padding:22px 20px calc(24px + env(safe-area-inset-bottom,0px));transform:translateY(105%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),visibility 0s .35s}
+.modal.open{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.m-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px}
+.m-ic{width:46px;height:46px;border-radius:14px;background:var(--card);border:1px solid var(--line);color:var(--gold);display:grid;place-items:center;flex:none}
+.m-head h3{font-family:"Playfair Display",Georgia,serif;font-size:1.4rem;font-weight:600;line-height:1.2}
+.m-head p{color:var(--muted);font-size:.85rem}
+.m-head .iconbtn{margin:-4px -6px 0 auto}
+.fld{display:block;margin-bottom:14px}
+.fld>span{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;background:var(--card);border:1px solid var(--line-soft);border-radius:12px;padding:13px 14px;color:var(--text);font:inherit;font-size:16px;outline:0;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.fld select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 55%,calc(100% - 14px) 55%;background-size:6px 6px;background-repeat:no-repeat;padding-right:38px}
+.fld textarea{min-height:92px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,180,74,.18)}
+.fld .err{display:none;color:var(--danger);font-size:.78rem;margin-top:5px}
+.fld.bad input,.fld.bad select{border-color:var(--danger)}
+.fld.bad .err{display:block}
+.note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:12px}
+.done{text-align:center;padding:26px 6px 6px}
+.done .m-ic{margin:0 auto 14px;background:var(--gold);color:var(--ink);border:0}
+.done p{color:var(--muted);margin:8px 0 22px}
+
+.lb{position:fixed;inset:0;z-index:80;background:rgba(6,6,7,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .25s}
+.lb img{max-width:94vw;max-height:74vh;border-radius:14px;object-fit:contain}
+.lb figcaption{margin-top:14px;text-align:center;color:#eee;padding:0 20px}
+.lb figcaption small{display:block;color:#b9b3a4;font-size:.78rem}
+.lb-btn{position:absolute;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;display:grid;place-items:center}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+.lb-close{top:calc(14px + env(safe-area-inset-top,0px));right:14px}
+.lb-prev{left:10px;top:50%;margin-top:-23px}
+.lb-next{right:10px;top:50%;margin-top:-23px}
+
+/* ---------- Larger screens ---------- */
+@media(min-width:640px){
+  .modal{left:50%;top:50%;bottom:auto;right:auto;width:480px;max-height:90vh;border:1px solid var(--line);border-radius:28px;transform:translate(-50%,-46%) scale(.97);opacity:0;transition:transform .3s,opacity .3s,visibility 0s .3s}
+  .modal.open{transform:translate(-50%,-50%);opacity:1;transition:transform .3s,opacity .3s}
+  .cta-row{display:flex}
+  .btn{width:auto}
+}
+@media(min-width:860px){
+  :root{--pad:28px}
+  .hero{padding:72px 0 96px}
+  .hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}
+  .hero-copy{order:1}
+  .medallion{order:2;width:min(100%,400px)}
+  .card{flex-basis:300px}
+  .track.is-grid{grid-template-columns:repeat(4,1fr)}
+  .svc{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+  .split{grid-template-columns:.8fr 1.2fr;align-items:start}
+  .about{grid-template-columns:.8fr 1.2fr;gap:70px}
+  .about-art{width:100%;max-width:340px}
+  .fcols{grid-template-columns:1fr 1.4fr;gap:60px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- Icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.6 7.6"/><circle cx="11" cy="11" r="2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-feather" viewBox="0 0 24 24"><path d="M20.2 12.2a6 6 0 0 0-8.5-8.5L5 10.5V19h8.5z"/><path d="M16 8L2 22M17.5 15H9"/></symbol>
+    <symbol id="i-type" viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.7"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/><path d="M9 9.5c.3 2 2.5 4.2 4.5 4.5l1.3-1.2-1.8-1-.8.7c-.9-.4-1.6-1.1-2-2l.7-.8-1-1.8z" fill="currentColor" stroke="none"/></symbol>
+  </defs>
+</svg>
+
+<!-- Header -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <button class="iconbtn" id="menuBtn" aria-label="Hap menunë"><svg class="i"><use href="#i-menu"/></svg></button>
+    <a class="brand" href="#top" aria-label="TattooAura, ballina"><img src="logo.png" alt="" width="34" height="34"><b>TATTOO AURA</b></a>
+    <button class="iconbtn theme" id="themeBtn" aria-label="Ndrysho temën"><svg class="i moon"><use href="#i-moon"/></svg><svg class="i sun"><use href="#i-sun"/></svg></button>
+    <button class="iconbtn" data-open="book" aria-label="Rezervo termin"><svg class="i"><use href="#i-cal"/></svg></button>
+  </div>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="medallion">
+      <svg class="ring" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="196" stroke-width="1.4" stroke-dasharray="2 9" stroke-linecap="round"/>
+        <circle cx="200" cy="200" r="188" stroke-width=".8" opacity=".45"/>
+        <g fill="var(--gold)"><path d="M200 0l5 8-5 8-5-8z"/><path d="M200 400l5-8-5-8-5 8z"/><path d="M0 200l8-5 8 5-8 5z"/><path d="M400 200l-8-5-8 5 8 5z"/></g>
+      </svg>
+      <img src="logo.png" alt="Logoja e TattooAura me luan dhe simbole runike" width="720" height="720">
+    </div>
+    <div class="hero-copy">
+      <p class="tag"><img src="lion.png" alt=""><span>Studio tatuazhesh, <span data-bind="city"></span></span></p>
+      <h1>Historia jote, e shkruar në lëkurë.</h1>
+      <p class="lead">Dizajne unike, dorë e sigurt dhe higjienë e rreptë. Vjen me një ide, del me një punë që e mban përgjithmonë.</p>
+      <div class="cta-row">
+        <button class="btn btn-gold" data-open="book">Rezervo termin</button>
+        <a class="btn btn-line" href="#punimet">Shiko punimet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="sec" id="punimet">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Punimet e fundit</h2>
+      <p>Shtyp një foto për ta parë të madhe.</p>
+    </div>
+    <div class="tools">
+      <div class="chips" id="chips" role="group" aria-label="Filtro sipas stilit" hidden></div>
+      <div class="arrows" id="arrows">
+        <button class="roundbtn" id="prev" aria-label="Para"><svg class="i"><use href="#i-left"/></svg></button>
+        <button class="roundbtn" id="next" aria-label="Pas"><svg class="i"><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+    <div class="track" id="track" aria-live="polite"></div>
+    <div class="more"><button class="btn btn-line" id="toggleGrid" hidden>Shfaq të gjitha</button></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="sec" id="sherbimet">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Çfarë tatuojmë</h2>
+      <p>Zgjidh stilin që të përshtatet, ose na thuaj idenë tënde dhe e gjejmë bashkë.</p>
+    </div>
+    <ul class="svc" id="svcList"></ul>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="sec" id="procesi">
+  <div class="wrap split">
+    <div class="sec-head">
+      <h2>Si punojmë</h2>
+      <p>Nga ideja te tatuazhi i shëruar, në katër hapa.</p>
+    </div>
+    <ol class="steps">
+      <li><div><h3>Bisedojmë idenë</h3><p>Na shkruaj në WhatsApp me një referencë ose thjesht një ide. Flasim për madhësinë, vendin në trup dhe stilin.</p></div></li>
+      <li><div><h3>Skicojmë dizajnin</h3><p>Përgatisim një skicë sipas idesë tënde dhe e rregullojmë bashkë derisa të të pëlqejë.</p></div></li>
+      <li><div><h3>Tatuazhi</h3><p>Punojmë në një ambient të pastër, me pajisje sterile dhe me kohën që i duhet çdo detaji.</p></div></li>
+      <li><div><h3>Kujdesi pas tatuazhit</h3><p>Të japim udhëzime të qarta që tatuazhi të shërohet mirë dhe të mbetet i qartë me vite.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- About -->
+<section class="sec" id="rreth">
+  <div class="wrap about">
+    <div class="about-art"><img src="lion.png" alt="Luani i TattooAura"></div>
+    <div>
+      <h2>Çdo tatuazh fillon me një bisedë.</h2>
+      <p>TattooAura është një studio ku ideja jote është në qendër. Nuk kopjojmë dizajne të gatshme: e dëgjojmë historinë tënde dhe e kthejmë në një punë që do ta mbash me krenari gjithë jetën.</p>
+      <ul class="checks">
+        <li><svg class="i"><use href="#i-check"/></svg><span>Dizajn i përshtatur vetëm për ty</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span>Pajisje sterile dhe ambient i pastër</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span>Udhëzime të qarta për kujdesin pas tatuazhit</span></li>
+      </ul>
+      <p class="motto">The one and only.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Gati për tatuazhin tënd?</h2>
+    <p>Na shkruaj idenë dhe bien dakord për një termin.</p>
+    <button class="btn btn-gold" data-open="book">Rezervo termin</button>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="ftr" id="kontakt">
+  <div class="wrap">
+    <div class="soc">
+      <a id="igLink" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#i-ig"/></svg></a>
+      <a id="ttLink" href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i"><use href="#i-tt"/></svg></a>
+    </div>
+    <div class="fcols">
+      <div>
+        <h4>Menuja</h4>
+        <nav>
+          <a href="#top">Ballina</a>
+          <a href="#punimet">Punimet</a>
+          <a href="#sherbimet">Shërbimet</a>
+          <a href="#procesi">Si punojmë</a>
+          <a href="#rreth">Rreth nesh</a>
+        </nav>
+      </div>
+      <div>
+        <h4>Na kontaktoni</h4>
+        <div class="info">
+          <div><svg class="i"><use href="#i-pin"/></svg><span data-bind="address"></span></div>
+          <div><svg class="i"><use href="#i-pin"/></svg><a id="mapsLink" class="u" href="#" target="_blank" rel="noopener">Shiko në Google Maps</a></div>
+          <div><svg class="i"><use href="#i-phone"/></svg><a id="telLink" href="#" data-bind="phoneDisplay"></a></div>
+          <div><svg class="i"><use href="#i-clock"/></svg><span data-bind="hours"></span></div>
+        </div>
+      </div>
+    </div>
+    <p class="copy">© <span id="yr"></span> TattooAura. Të gjitha të drejtat e rezervuara.</p>
+  </div>
+</footer>
+
+<a class="wa" id="waFab" href="#" target="_blank" rel="noopener" aria-label="Na shkruaj në WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
+
+<!-- Overlays -->
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer" aria-label="Menuja">
+  <div class="dr-head">
+    <img src="logo.png" alt="" width="38" height="38"><b>TATTOO AURA</b>
+    <button class="iconbtn" data-close aria-label="Mbyll menunë"><svg class="i"><use href="#i-x"/></svg></button>
+  </div>
+  <nav class="dr-nav">
+    <a href="#punimet">Punimet</a>
+    <a href="#sherbimet">Shërbimet</a>
+    <a href="#procesi">Si punojmë</a>
+    <a href="#rreth">Rreth nesh</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <button class="btn btn-gold" data-open="book">Rezervo termin</button>
+</aside>
+
+<section class="modal" id="book" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
+  <div class="m-head">
+    <span class="m-ic"><svg class="i"><use href="#i-cal"/></svg></span>
+    <div><h3 id="bookTitle">Rezervo termin</h3><p>Plotëso detajet, ne të përgjigjemi në WhatsApp.</p></div>
+    <button class="iconbtn" data-close aria-label="Mbyll"><svg class="i"><use href="#i-x"/></svg></button>
+  </div>
+  <form id="bookForm" novalidate>
+    <label class="fld"><span>Emri dhe mbiemri</span>
+      <input name="name" autocomplete="name" placeholder="Shkruani emrin dhe mbiemrin tuaj">
+      <small class="err">Shkruani emrin dhe mbiemrin tuaj të plotë.</small></label>
+    <label class="fld"><span>Numri i telefonit</span>
+      <input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="p.sh. 069 123 4567">
+      <small class="err">Shkruani një numër telefoni të vlefshëm (p.sh. 069 123 4567).</small></label>
+    <label class="fld"><span>Shërbimi</span>
+      <select name="service" id="svcSelect"><option value="">Zgjidhni shërbimin</option></select>
+      <small class="err">Zgjidhni një shërbim ose “Dua këshillim”.</small></label>
+    <label class="fld"><span>Ku e dëshiron tatuazhin (opsionale)</span>
+      <input name="zone" placeholder="p.sh. krahu, parakrahu, shpina"></label>
+    <label class="fld"><span>Data e preferuar (opsionale)</span>
+      <input name="date" type="date"></label>
+    <label class="fld"><span>Ideja jote (opsionale)</span>
+      <textarea name="idea" placeholder="Stili, madhësia, çfarë do të përfaqësojë…"></textarea></label>
+    <button class="btn btn-gold" type="submit"><svg class="i"><use href="#i-wa"/></svg>Dërgo në WhatsApp</button>
+    <p class="note">Mund të dërgosh edhe foto reference direkt në bisedë.</p>
+  </form>
+  <div class="done" id="done" hidden>
+    <span class="m-ic"><svg class="i"><use href="#i-check"/></svg></span>
+    <h3 class="serif" style="font-size:1.4rem">Kërkesa u përgatit</h3>
+    <p>Po hapet WhatsApp me mesazhin gati. Shtyp “Dërgo” atje për ta përfunduar.</p>
+    <button class="btn btn-line" data-close>Mbyll</button>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto e madhe">
+  <button class="lb-btn lb-close" data-lbclose aria-label="Mbyll"><svg class="i"><use href="#i-x"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Foto e mëparshme"><svg class="i"><use href="#i-left"/></svg></button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Foto tjetër"><svg class="i"><use href="#i-right"/></svg></button>
+</div>
+
+<script>
+/* =====================================================================
+   ✏️  KËTU NDRYSHON GJITHÇKA — vetëm këtë pjesë duhet ta prekësh
+   ===================================================================== */
+
+const CONFIG = {
+  city:         "Tiranë",
+  address:      "Rruga, Tiranë",                       // ndrysho adresën
+  phoneDisplay: "+355 69 000 0000",                    // si shfaqet numri
+  whatsapp:     "355690000000",                        // numri për WhatsApp: pa +, pa hapësira
+  hours:        "E hënë – E shtunë, 10:00 – 20:00",
+  mapsUrl:      "https://www.google.com/maps/search/?api=1&query=Tirana",
+  instagram:    "https://instagram.com/",              // linku i faqes tënde
+  tiktok:       "https://tiktok.com/"
+};
+
+/* FOTOT: ngarko fotot në folderin "images" dhe shto një rresht për secilën.
+   title dhe cat janë opsionale. Nëse cat është e vendosur, shfaqen filtrat.
+   Nëse e lë listën bosh, faqja kërkon vetë images/1.jpg, images/2.jpg, ... images/30.jpg */
+const PHOTOS = [
+  // { src: "images/foto1.jpg", title: "Luani realistik", cat: "Realistik" },
+  // { src: "images/foto2.jpg", title: "Emri në shkronja", cat: "Lettering" },
+  // { src: "images/foto3.jpg", title: "Trëndafil fine line", cat: "Fine line" },
+];
+
+/* SHËRBIMET: ndrysho emrin ose përshkrimin. icon: pen, eye, feather, type, layers, refresh */
+const SERVICES = [
+  { icon: "pen",     name: "Dizajn custom",      desc: "Ideja jote e kthyer në një skicë unike, vizatuar posaçërisht për ty." },
+  { icon: "eye",     name: "Realistik",          desc: "Portrete, kafshë dhe objekte me hije e thellësi të vërtetë." },
+  { icon: "feather", name: "Fine line & minimal", desc: "Vija të holla, simbole të vogla dhe detaje të pastra." },
+  { icon: "type",    name: "Lettering",          desc: "Emra, data dhe fjali me shkronja të zgjedhura për stilin tënd." },
+  { icon: "layers",  name: "Cover-up",           desc: "Mbulojmë një tatuazh të vjetër me një dizajn të ri dhe më të fortë." },
+  { icon: "refresh", name: "Retusha",            desc: "I japim qartësi vijave dhe ngjyrave të një tatuazhi që është zbehur." }
+];
+
+/* =====================================================================
+   Nga këtu e poshtë nuk ka nevojë të ndryshosh asgjë
+   ===================================================================== */
+(function () {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const root = document.documentElement;
+
+  /* ---- Config -> DOM ---- */
+  $$('[data-bind]').forEach(el => { const v = CONFIG[el.dataset.bind]; if (v) el.textContent = v; });
+  $('#igLink').href = CONFIG.instagram;
+  $('#ttLink').href = CONFIG.tiktok;
+  $('#mapsLink').href = CONFIG.mapsUrl;
+  $('#telLink').href = 'tel:+' + CONFIG.whatsapp;
+  $('#waFab').href = 'https://wa.me/' + CONFIG.whatsapp;
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* ---- Theme ---- */
+  $('#themeBtn').addEventListener('click', () => {
+    const t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', t);
+    $('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#0b0b0c' : '#f8f5ed');
+    try { localStorage.setItem('ta-theme', t); } catch (e) {}
+  });
+
+  /* ---- Services + select ---- */
+  $('#svcList').innerHTML = SERVICES.map(s =>
+    `<li><span class="ic"><svg class="i"><use href="#i-${s.icon}"/></svg></span>
+      <div><h3>${s.name}</h3><p>${s.desc}</p></div>
+      <button class="roundbtn line" data-service="${s.name}" aria-label="Rezervo: ${s.name}"><svg class="i"><use href="#i-arrow"/></svg></button></li>`
+  ).join('');
+  const sel = $('#svcSelect');
+  SERVICES.concat([{ name: 'Dua këshillim' }]).forEach(s => {
+    const o = document.createElement('option'); o.value = o.textContent = s.name; sel.appendChild(o);
+  });
+
+  /* ---- Panels (drawer / modal / lightbox) ---- */
+  const scrim = $('#scrim'), drawer = $('#drawer'), book = $('#book'), lb = $('#lb');
+  let lastFocus = null;
+  function openPanel(el) {
+    closePanels(true);
+    lastFocus = document.activeElement;
+    el.classList.add('open');
+    if (el !== lb) scrim.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePanels(silent) {
+    [drawer, book, lb, scrim].forEach(e => e.classList.remove('open'));
+    document.body.style.overflow = '';
+    if (!silent && lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) {} }
+  }
+  scrim.addEventListener('click', () => closePanels());
+  $('#menuBtn').addEventListener('click', () => { openPanel(drawer); setTimeout(() => $('.dr-nav a', drawer).focus(), 50); });
+  $$('.dr-nav a', drawer).forEach(a => a.addEventListener('click', () => closePanels(true)));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closePanels();
+    if (lb.classList.contains('open')) {
+      if (e.key === 'ArrowLeft') lbStep(-1);
+      if (e.key === 'ArrowRight') lbStep(1);
+    }
+  });
+
+  /* ---- Booking ---- */
+  const form = $('#bookForm'), done = $('#done');
+  form.elements.date.min = new Date().toISOString().slice(0, 10);
+  function openBook(service) {
+    form.hidden = false; done.hidden = true;
+    if (service) { sel.value = service; sel.closest('.fld').classList.remove('bad'); }
+    openPanel(book);
+    setTimeout(() => form.elements.name.focus({ preventScroll: true }), 350);
+  }
+  document.addEventListener('click', e => {
+    const o = e.target.closest('[data-open="book"]');
+    if (o) { e.preventDefault(); openBook(); return; }
+    const s = e.target.closest('[data-service]');
+    if (s) { openBook(s.dataset.service); return; }
+    if (e.target.closest('[data-close]')) closePanels();
+    if (e.target.closest('[data-lbclose]')) closePanels();
+  });
+  $$('input,select,textarea', form).forEach(el => el.addEventListener('input', () => el.closest('.fld').classList.remove('bad')));
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = k => (form.elements[k].value || '').trim();
+    const checks = {
+      name: v('name').length >= 3,
+      phone: /^\+?[\d\s\-()]{8,}$/.test(v('phone')),
+      service: !!v('service')
+    };
+    let ok = true;
+    Object.keys(checks).forEach(k => {
+      const bad = !checks[k];
+      form.elements[k].closest('.fld').classList.toggle('bad', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) { const f = $('.fld.bad input, .fld.bad select', form); if (f) f.focus(); return; }
+    const lines = ['Përshëndetje TattooAura! Dua të rezervoj një termin.', '',
+      'Emri: ' + v('name'), 'Telefoni: ' + v('phone'), 'Shërbimi: ' + v('service')];
+    if (v('zone')) lines.push('Zona e trupit: ' + v('zone'));
+    if (v('date')) lines.push('Data e preferuar: ' + v('date'));
+    if (v('idea')) lines.push('Ideja: ' + v('idea'));
+    const url = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(lines.join('\n'));
+    const w = window.open(url, '_blank', 'noopener');
+    if (!w) window.location.href = url;
+    form.hidden = true; done.hidden = false; form.reset();
+  });
+
+  /* ---- Gallery ---- */
+  const track = $('#track'), chipsEl = $('#chips'), prev = $('#prev'), next = $('#next'), toggle = $('#toggleGrid'), arrows = $('#arrows');
+  let photos = [], cat = 'all', visible = [], idx = 0;
+
+  const norm = p => typeof p === 'string' ? { src: p, title: '', cat: '' } : { src: p.src, title: p.title || '', cat: p.cat || '' };
+  const probe = (src, n) => new Promise(res => { const im = new Image(); im.onload = () => res({ src, title: 'Punim ' + n, cat: '' }); im.onerror = () => res(null); im.src = src; });
+
+  async function loadPhotos() {
+    if (PHOTOS.length) return PHOTOS.map(norm);
+    const tests = []; for (let n = 1; n <= 30; n++) tests.push(probe('images/' + n + '.jpg', n));
+    return (await Promise.all(tests)).filter(Boolean);
+  }
+
+  function buildChips() {
+    const cats = Array.from(new Set(photos.map(p => p.cat).filter(Boolean)));
+    chipsEl.innerHTML = '';
+    if (cats.length < 2) { chipsEl.hidden = true; return; }
+    chipsEl.hidden = false;
+    ['all'].concat(cats).forEach(c => {
+      const b = document.createElement('button');
+      b.className = 'chip'; b.textContent = c === 'all' ? 'Të gjitha' : c;
+      b.setAttribute('aria-pressed', String(c === cat));
+      b.addEventListener('click', () => { cat = c; buildChips(); render(); track.scrollTo({ left: 0 }); });
+      chipsEl.appendChild(b);
+    });
+  }
+
+  function render() {
+    track.innerHTML = '';
+    if (!photos.length) {
+      ['Punim i ri', 'Punim i ri', 'Punim i ri', 'Punim i ri'].forEach(t => {
+        const a = document.createElement('article'); a.className = 'card empty';
+        a.innerHTML = '<div class="ph"><img src="lion.png" alt=""></div><div class="meta"><div><small>Së shpejti</small><h3></h3></div></div>';
+        a.querySelector('h3').textContent = t; track.appendChild(a);
+      });
+      toggle.hidden = true; updateArrows(); return;
+    }
+    visible = cat === 'all' ? photos : photos.filter(p => p.cat === cat);
+    visible.forEach((p, i) => {
+      const a = document.createElement('article'); a.className = 'card';
+      a.innerHTML = '<div class="ph"><img loading="lazy" decoding="async" alt=""></div>' +
+        '<div class="meta"><div><small></small><h3></h3></div>' +
+        '<button class="roundbtn fill" aria-label="Zmadho foton"><svg class="i"><use href="#i-arrow"/></svg></button></div>';
+      const img = $('img', a); img.src = p.src; img.alt = p.title || 'Punim tatuazhi';
+      $('small', a).textContent = p.cat || ' ';
+      const h = $('h3', a); if (p.title) h.textContent = p.title; else h.remove();
+      img.addEventListener('error', () => a.remove());
+      $('.ph', a).addEventListener('click', () => openLb(i));
+      $('button', a).addEventListener('click', () => openLb(i));
+      track.appendChild(a);
+    });
+    toggle.hidden = visible.length < 4;
+    updateArrows();
+  }
+
+  function updateArrows() {
+    const grid = track.classList.contains('is-grid');
+    arrows.hidden = grid;
+    prev.disabled = track.scrollLeft < 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  }
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * .8, behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * .8, behavior: 'smooth' }));
+  toggle.addEventListener('click', () => {
+    const on = track.classList.toggle('is-grid');
+    toggle.textContent = on ? 'Shfaq më pak' : 'Shfaq të gjitha';
+    track.scrollTo({ left: 0 }); updateArrows();
+    if (!on) $('#punimet').scrollIntoView({ block: 'start' });
+  });
+
+  /* ---- Lightbox ---- */
+  function showLb() {
+    const p = visible[idx]; if (!p) return;
+    $('#lbImg').src = p.src; $('#lbImg').alt = p.title || 'Punim tatuazhi';
+    $('#lbCap').innerHTML = '<span></span><small></small>';
+    $('#lbCap span').textContent = p.title || '';
+    $('#lbCap small').textContent = p.cat || '';
+    const multi = visible.length > 1;
+    $('#lbPrev').hidden = $('#lbNext').hidden = !multi;
+  }
+  function openLb(i) { idx = i; showLb(); openPanel(lb); $('.lb-close').focus(); }
+  function lbStep(d) { idx = (idx + d + visible.length) % visible.length; showLb(); }
+  $('#lbPrev').addEventListener('click', () => lbStep(-1));
+  $('#lbNext').addEventListener('click', () => lbStep(1));
+  let sx = null;
+  lb.addEventListener('touchstart', e => { sx = e.changedTouches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    if (sx === null || visible.length < 2) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 50) lbStep(dx < 0 ? 1 : -1);
+    sx = null;
+  }, { passive: true });
+  lb.addEventListener('click', e => { if (e.target === lb) closePanels(); });
+
+  /* ---- Start ---- */
+  render();
+  loadPhotos().then(list => { photos = list; buildChips(); render(); });
+})();
+</script>
+</body>
+</html>
